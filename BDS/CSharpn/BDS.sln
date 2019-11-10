@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pathik", "Pathik\Pathik.csproj", "{A7F6C685-4B2F-413B-9952-9F688E8BDD54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swizilla", "Swizilla\Swizilla.csproj", "{93BF3425-2EB8-4675-B3F5-12A399A93A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic", "Dynamic\Dynamic.csproj", "{8590FDD7-BEDD-48BA-B913-4E4024D541B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynaCreate", "DynaCreate\DynaCreate.csproj", "{252BE03E-C7B2-4642-9BB7-E3ED56A156DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8B91AA56-C010-48B6-B408-B2324E2EC353} = {8B91AA56-C010-48B6-B408-B2324E2EC353}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rates", "Rates\Rates.csproj", "{8B91AA56-C010-48B6-B408-B2324E2EC353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleEngine", "RuleEngine\RuleEngine.csproj", "{7C1C3D6F-CBAF-4714-B4B0-BC882E96AD27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7F6C685-4B2F-413B-9952-9F688E8BDD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F6C685-4B2F-413B-9952-9F688E8BDD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F6C685-4B2F-413B-9952-9F688E8BDD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F6C685-4B2F-413B-9952-9F688E8BDD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BF3425-2EB8-4675-B3F5-12A399A93A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BF3425-2EB8-4675-B3F5-12A399A93A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BF3425-2EB8-4675-B3F5-12A399A93A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BF3425-2EB8-4675-B3F5-12A399A93A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8590FDD7-BEDD-48BA-B913-4E4024D541B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8590FDD7-BEDD-48BA-B913-4E4024D541B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8590FDD7-BEDD-48BA-B913-4E4024D541B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8590FDD7-BEDD-48BA-B913-4E4024D541B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{252BE03E-C7B2-4642-9BB7-E3ED56A156DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252BE03E-C7B2-4642-9BB7-E3ED56A156DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252BE03E-C7B2-4642-9BB7-E3ED56A156DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252BE03E-C7B2-4642-9BB7-E3ED56A156DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B91AA56-C010-48B6-B408-B2324E2EC353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B91AA56-C010-48B6-B408-B2324E2EC353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B91AA56-C010-48B6-B408-B2324E2EC353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B91AA56-C010-48B6-B408-B2324E2EC353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1C3D6F-CBAF-4714-B4B0-BC882E96AD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1C3D6F-CBAF-4714-B4B0-BC882E96AD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1C3D6F-CBAF-4714-B4B0-BC882E96AD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1C3D6F-CBAF-4714-B4B0-BC882E96AD27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B99EAD4-E251-4DE0-81D8-26533442C0DE}
+	EndGlobalSection
+EndGlobal

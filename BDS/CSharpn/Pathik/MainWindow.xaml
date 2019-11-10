@@ -1,0 +1,26 @@
+﻿<Window x:Class="Pathik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pathik"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,2,-2" Height="421" VerticalAlignment="Top">
+        <Label Content="Pathik System" HorizontalAlignment="Left" Margin="358,3,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB" FontSize="14" Height="26"/>
+        <Label Content="Lane Number" HorizontalAlignment="Left" Margin="68,92,0,0" VerticalAlignment="Top" Width="160"/>
+        <Label Content="Vehicle Number" HorizontalAlignment="Left" Margin="68,141,0,0" VerticalAlignment="Top" Width="160"/>
+        <Label Content="Vehicle Type" HorizontalAlignment="Left" Margin="68,196,0,197" Width="160" d:LayoutOverrides="Height"/>
+        <TextBox x:Name="LaneNumberTextBox" Height="23" Margin="278,92,394,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <TextBox x:Name="VehicleNumberTextBox" Height="23" Margin="278,141,394,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <ComboBox x:Name="VehicleTypeComboBox" Margin="278,196,394,201" d:LayoutOverrides="Height" IsReadOnly="True" SelectedIndex="0">
+            <ListBoxItem Content="Car"/>
+            <ListBoxItem Content="Tempo"/>
+            <ListBoxItem Content="Truck"/>
+            <ListBoxItem Content="Trailer"/>
+        </ComboBox>
+        <Button x:Name="OkButton" Content="Ok" HorizontalAlignment="Left" Margin="294,0,0,62" VerticalAlignment="Bottom" Width="75" Click="OkButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,294,62" VerticalAlignment="Bottom" Width="75" Click="CancelButton_Click"/>
+
+    </Grid>
+</Window>
