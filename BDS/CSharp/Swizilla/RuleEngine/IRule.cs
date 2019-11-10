@@ -13,7 +13,7 @@ namespace Swizilla.RuleEngine
 
     public interface IRuleResult
     {
-
+        bool RunNext { get; set; }
     }
 
     public interface IRuleParameters

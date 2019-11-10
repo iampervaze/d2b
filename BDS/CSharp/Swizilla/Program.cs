@@ -1,9 +1,12 @@
 ﻿using Swizilla.Bank;
 using Swizilla.DI;
+using Swizilla.ParamObjects;
 using Swizilla.RuleEngine;
 using Swizilla.RuleEngine.DiscountRules;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,19 +18,35 @@ namespace Swizilla
     {
         static void Main(string[] args)
         {
+
             //START ------- RULE Engine 
             var di = new DIEngine();
             var engine = new MyRuleEngine();
 
 
-            var rules = di.GetRules();
-            var customer = new Customer("Anders Hejlsberg", new DateTime(2017, 07, 07), new DateTime(2017, 10, 5), new DateTime(1960, 12, 2));
+            var rules = di.GetRules("billrules.txt", "Swizilla.");
+            var billInfo = new BillInfo() { Units = 274 };
 
-            var results = engine.Execute(customer, rules);
-            var discount = results.Select(o => ((Discount)o).Amount).Aggregate((a, b) => a + b);
+            var result = engine.Execute(billInfo, rules).FirstOrDefault() as BillInfo;
 
-            Console.WriteLine($"Customer {customer.CustomerName} got {discount} discount");
-            //END ------- RULE Engine 
+
+            Console.WriteLine($"Customer {billInfo.CustomerName} got {result.Bill} discount");
+            //END------ - RULE Engine
+
+            //START ------- RULE Engine 
+            //var di = new DIEngine();
+            //var engine = new MyRuleEngine(); 
+
+
+            //var rules = di.GetRules();
+            //var customer = new Customer("Anders Hejlsberg", new DateTime(2017, 07, 07), new DateTime(2017, 10, 5), new DateTime(1960, 12, 2));
+
+            //var results = engine.Execute(customer, rules);
+            //var discount = results.Select(o => ((Discount)o).Amount).Aggregate((a, b) => a + b);
+
+            //Console.WriteLine($"Customer {customer.CustomerName} got {discount} discount");
+            //END------ - RULE Engine
+
 
 
             ////Shapes with DI

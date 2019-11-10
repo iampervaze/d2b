@@ -25,13 +25,13 @@ namespace Swizilla.DI
             return instance;
         }
 
-        public List<IRule> GetRules()
+        public List<IRule> GetRules(string fileName= "ruledi.txt", string namesp="Swizilla.RuleEngine.DiscountRules.")
         {
             var rules = new List<IRule>();
-            var ruleList = FileHelper.GetLines("ruledi.txt");
+            var ruleList = FileHelper.GetLines(fileName);
             ruleList.ToList().ForEach(ruleName =>
             {
-                var instance = (IRule)Activator.CreateInstance(Type.GetType($"Swizilla.RuleEngine.DiscountRules.{ruleName}"));
+                var instance = (IRule)Activator.CreateInstance(Type.GetType($"{namesp}{ruleName}"));
                 rules.Add(instance);
             });
             return rules;

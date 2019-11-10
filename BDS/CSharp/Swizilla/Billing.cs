@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Swizilla.ParamObjects;
+using Swizilla.RuleEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +12,6 @@ namespace Swizilla
     {
         public static decimal calculateTariff(int units)
         {
-            /*
-             * Tariff Map
-             * First  100 units are at Rs. 1.35
-             * Next   200 units are at Rs. 4.05
-             * Next   300 units are at Rs. 6.75
-             * Beyond 500 units are at Rs. 8.05
-             */
-
             if (units <= 100)
                 return units * 1.35M;
 
@@ -29,22 +23,57 @@ namespace Swizilla
 
             return (100 * 1.35M) + (200 * 4.05M) + (300 * 6.75M) + ((units - 500) * 8.0M);
         }
+    }
 
-
-        public static decimal calculateTariffNew(int units)
+    public class UnitsBelow100 : IRule
+    {
+        public IRuleResult Execute(IRuleParameters parameters)
         {
-            //    List<Func<Predicate<int>, int, decimal>> businessCases = new List<Func<Predicate<int>, int, decimal>>()
-            //    {
-            //       new Func<Predicate<int>, int, decimal>((u) => true, u) => { return 0.0M; }
-            //};
+            var billInfo = parameters as BillInfo;
+            if (billInfo.Units <= 100) billInfo.Bill = billInfo.Units * 1.35M;
+            return billInfo as IRuleResult;
+        }
+    }
 
-            //Func<Predicate<int>, int, decimal> x = ((u) => true, v) => { return 0.0M; };
-            //Predicate<int> x = (y) => true;
+    public class UnitsBelow300 : IRule
+    {
+        public IRuleResult Execute(IRuleParameters parameters)
+        {
+            var billInfo = parameters as BillInfo;
+            if (billInfo.Units <= 300)
+            {
+                billInfo.Bill = (100 * 1.35M) + ((billInfo.Units - 100) * 4.05M);
+                billInfo.RunNext = false;
+            };
+            return billInfo as IRuleResult;
+        }
+    }
 
-            //Func<Predicate<int>, int, decimal> u = ((v) => true, w) => { return 0.0M; };
+    public class UnitsBelow500 : IRule
+    {
+        public IRuleResult Execute(IRuleParameters parameters)
+        {
+            var billInfo = parameters as BillInfo;
 
+            if (billInfo.Units <= 500)
+            {
+                billInfo.Bill = (100 * 1.35M) + (200 * 4.05M) + ((billInfo.Units - 300) * 6.75M); billInfo.RunNext = false;
+            };
+            return billInfo as IRuleResult;
+        }
+    }
 
-            return 0.0M;
+    public class UnitsGreaterThan500 : IRule
+    {
+        public IRuleResult Execute(IRuleParameters parameters)
+        {
+            var billInfo = parameters as BillInfo;
+            if (billInfo.Units > 500)
+            {
+                billInfo.Bill = (100 * 1.35M) + (200 * 4.05M) + (300 * 6.75M) + ((billInfo.Units - 500) * 8.0M);
+                billInfo.RunNext = false;
+            };
+            return billInfo as IRuleResult;
         }
     }
 }

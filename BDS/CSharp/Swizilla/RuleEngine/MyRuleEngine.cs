@@ -10,15 +10,16 @@ namespace Swizilla.RuleEngine
 {
     public class MyRuleEngine
     {
-        public List<IRuleResult> Execute(IRuleParameters input, List<IRule> rules)
+        public List<IRuleResult> Execute<T>(T input, List<IRule> rules)
+            where T : IRuleParameters
         {
             var results = new List<IRuleResult>();
-            rules.ForEach(rule =>
-             {
-                 var result = rule.Execute(input);
-                 results.Add(result);
-             });
-
+            foreach(var rule in rules)
+            {
+                var result = rule.Execute(input);
+                if (!result.RunNext) break;
+                results.Add(result);
+            }
             return results;
         }
     }

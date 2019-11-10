@@ -9,6 +9,8 @@ namespace Swizilla.RuleEngine.DiscountRules
     public class Discount: IRuleResult
     {
         public double Amount { get; set; }
+        public bool RunNext { get; set; }
+
         public Discount(double amount) => Amount = amount;
         public Discount() => Amount = 0;
     }
